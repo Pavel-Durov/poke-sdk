@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "test": "jest ./test/unit",
+    "prebuild": "echo \"export const Version = $(cat package.json | jq .version);\" > src/version.ts",
     "build": "tsc",
     "test:integration": "jest ./test/integration",
     "lint": "eslint 'src/**/*.{js,ts,json}' 'test/**/*.{js,ts,json}'",
