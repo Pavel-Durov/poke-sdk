@@ -2,15 +2,22 @@
 
 set -euo pipefail
 
-npm run build
-npm pack --pack-destination .
-
 rm -fr .build
+
+[ -f ./poke-sdk.tgz ] && rm ./poke-sdk.tgz
+
+# build package
+npm run build
+npm pack --pack-destination . 
+mv ./poke-sdk-typescript-*.tgz ./poke-sdk.tgz
+
+# create test project
 mkdir -p .build
 cd .build
 npm init -y
 npm install ts-node
-npm install file:../poke-sdk-typescript-0.0.4.tgz
+# install built package
+npm install file:../poke-sdk.tgz
 
 # generate index.ts file
 {
