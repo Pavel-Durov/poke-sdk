@@ -10,7 +10,7 @@ mkdir -p .build
 cd .build
 npm init -y
 npm install ts-node
-npm install file:../poke-sdk-typescript-0.0.3.tgz
+npm install file:../poke-sdk-typescript-0.0.4.tgz
 
 # generate index.ts file
 {
